@@ -72,16 +72,16 @@
 <div class="container">
     <form class = "container" action="/insertProc"  method="post">
         <h3>날짜 </h3>
-        <p style="color:red;" id = "hdate" hidden>날짜를 입력하세요</p>
-        <input type="date" id = "date" name="date">
+        <div style="color:red; display:none;" id = "hdate">날짜를 입력해주세요  </div>
+        <input type="date" id = "date" name="date" >
         <div class = "mb-3">
-            <label class="form-label"> <h3>제목 </h3></label>
-            <p style="color:red;" id = "htitle" hidden>제목을 입력하세요</p>
+            <label class="form-label" id = "ttitle"> <h3>제목 </h3></label>
+            <div style="color:red;display:none;" id = "htitle">제목을 입력하세요</div>
             <input type="text input-lg" class="form-control"  id = "title" name="title">
         </div>
         <div class = "mb-3">
             <label class="form-label"> <h3>수행과제 </h3></label>
-            <p style="color:red;">수행과제를 입력하세요</p>
+            <div style="color:red; display:none;" id = "hperform">수행과제를 입력하세요  </div>
             <textarea class="form-control"  rows="10" id = "assign" name="assign"></textarea>
         </div>
         <div class = "mb-3">
@@ -103,7 +103,7 @@
 
 
         <button type="submit" class="btn btn-primary"> 제출</button>
-        <button type="submit" class="btn btn-primary" onclick="alerttest()"> test</button>
+        <button type="button" class="btn btn-primary" onclick="alerttest()"> test</button>
 
     </form>
 
