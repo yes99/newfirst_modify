@@ -71,36 +71,29 @@
 
 <div class="container">
     <form class = "container" action="/insertProc"  method="post">
-        <h3>날짜 </h3>
-        <div style="color:red; display:none;" id = "hdate">날짜를 입력해주세요  </div>
-        <input type="date" id = "date" name="date" >
+        <div class = "mb-3">
+            <label class="form-label" id = "tdate"> <h3>날짜 </h3></label>
+            <div style="color:red; display:none;" id = "hdate">날짜를 입력해주세요  </div>
+            <input type="date" id = "date" name="date" onmouseup ="datestrcheck()">
+        </div>
         <div class = "mb-3">
             <label class="form-label" id = "ttitle"> <h3>제목 </h3></label>
             <div style="color:red;display:none;" id = "htitle">제목을 입력하세요</div>
-            <input type="text input-lg" class="form-control"  id = "title" name="title">
-        </div>
-        <div class = "mb-3">
-            <label class="form-label"> <h3>수행과제 </h3></label>
-            <div style="color:red; display:none;" id = "hperform">수행과제를 입력하세요  </div>
-            <textarea class="form-control"  rows="10" id = "assign" name="assign"></textarea>
-        </div>
-        <div class = "mb-3">
-            <label class="form-label"> <h3>수행과정</h3> </label>
-            <p style="color:red;">수행 과정을 입력하세요</p>
-            <textarea class="form-control"  rows="10" id = "perform" name="perform"></textarea>
-        </div>
-        <div class = "mb-3">
-            <label class="form-label"> <h3>실패 사례</h3> </label>
-            <p style="color:red;">실패 사례를 입력하세요 </p>
-            <textarea class="form-control"  rows="10" id = "fail" name="fail"></textarea>
-        </div>
+            <input type="text input-lg" class="form-control"  id = "title" name="title" onkeyup="titlestrcheck()">
 
-           <% String title = request.getParameter("title");%>
-           <% String date = request.getParameter("date");%>
-           <% String perform = request.getParameter("perform");%>
-           <% String assign = request.getParameter("assign");%>
-          <%  String fail = request.getParameter("fail");%>
-
+        </div>
+        <div class = "mb-3">
+            <label class="form-label" id = "tassign"> <h3>수행과제 </h3></label>
+            <textarea class="form-control"  rows="10" id = "assign" name="assign" onkeyup="assignstrcheck()"></textarea>
+        </div>
+        <div class = "mb-3">
+            <label class="form-label" id = "tperform"> <h3>수행과정</h3> </label>
+            <textarea class="form-control"  rows="10" id = "perform" name="perform" onkeyup="performstrcheck()"></textarea>
+        </div>
+        <div class = "mb-3">
+            <label class="form-label" id = "tfail"> <h3>실패 사례</h3> </label>
+            <textarea class="form-control"  rows="10" id = "fail" name="fail" onkeyup="failstrcheck()"></textarea>
+        </div>
 
         <button type="submit" class="btn btn-primary"> 제출</button>
         <button type="button" class="btn btn-primary" onclick="alerttest()"> test</button>
@@ -119,8 +112,6 @@
 
 <!-- Option 1: Bootstrap Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
-
-
 
 
 
