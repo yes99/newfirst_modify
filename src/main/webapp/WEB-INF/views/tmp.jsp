@@ -14,6 +14,66 @@
     <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+     <link rel="stylesheet" type="text/css" href="/include/css/ui-lightness/jquery-ui-1.8.16.custom.css" />
+     <link rel="stylesheet" type="text/css" href="/include/css/ui.jqgrid.css" />
+<!-- css 파일과 js파일을 포함시키는 순서가 중요하다! -->
+
+    <!-- jqGrid의 표준 스타일 임포트-->
+    <link rel="stylesheet" href="resources/include/css/ui.jqgrid.css" type="text/css">
+    <!-- jQuery UI의 표준 스타일 임포트-->
+    <link rel="stylesheet" href="resources/jquery-ui-1.11.4.custom/jquery-ui.css" type="text/css">
+    <!-- jQuery 라이브러리 임포트-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <!-- jQuery UI 라이브러리 임포트-->
+    <script src="resources/jquery-ui-1.11.4.custom/jquery-ui.min.js"></script>
+
+    <!-- jqGrid 라이브러리 임포트-->
+    <script src="resources/js/i18n/grid.locale-kr.js"></script>
+    <script src="resources/js/jquery.jqGrid.min.js"></script>
+	<script type="text/javascript">
+
+	$(function(){
+		$('#pagination').html('<p>안녕<p>');
+
+		$("#list2").jqGrid({
+		    url : 'jdbc:mariadb://localhost:3306/practice',
+		    datatype : "json",
+		    colNames : ['Inv No', 'Date', 'Client', 'Amount', 'Tax'],
+		    colModel:[
+		           {name:'id', index:'id', width:55},
+		           {name:'invdate', index:'invdate', width:90},
+		           {name:'name', index:'name asc, invdate', width:100},
+		           {name:'amount', index:'amount', width:80, align:"right"},
+		           {name:'txt', index:'tax', width:80, align:"right"}
+		    ],
+		    rowNum:10,
+		    rowList:[10,20,30],
+		    pager:'#pager2',
+		    sortname:'id',
+		    viewrecords: true,
+		    sortorder:"desc",
+		    caption:"JSON Example",
+		    jsonReader: {
+		         repeatitems:false
+		    }
+		});
+
+		$("#list2").jqGrid('navGrid','#pager2',{edit:false,add:false,del:false});
+
+
+	});//function()
+	</script>
+
+</head>
+
+
+	<table id="list2"></table>
+	<div id="pager2"></div>
+
+
+
+
+
 
 
 <title>List</title>
@@ -52,6 +112,14 @@
     </table>
 </div>
 
+<div class="tableWrap">
+     <table id="mainGrid"></table>
+     <div id="pager"></div>
+</div>
+
+
+
+
 
 <nav aria-label="...">
     <ul class="pagination justify-content-center">
@@ -64,7 +132,14 @@
         <c:if test="${paging.next && paging.endPage>0}">
             <span><a class="page-link" href='<c:url value="/tmp?page=${paging.endPage+1}"/>'>다음</a></span>
         </c:if>
+        <form class="navbar-form pull-right">
+                <input type="text" class="span2">
+                <button class="btn btn-primary" onclick="location.href='/tmp/${detail.id}'">검색</button> <!-- 검색 한 내용 -->
+        </form>
     </ul>
+
+    <br>
+
 </nav>
 
 
@@ -96,7 +171,7 @@
         </div>
 
         <button type="submit" class="btn btn-primary"> 제출</button>
-        <button type="button" class="btn btn-primary" onclick="alerttest()"> test</button>
+        <button type="submit" class="btn btn-primary" onclick="alerttest()"> test</button>
 
     </form>
 

@@ -18,7 +18,11 @@
         LIMIT #{pageStart}, #{perPageNum}
 
     </select>
-
+    <select id="getlist" resultType="com.example.newfirst.board.domain.BoardVO" parameterType="com.example.newfirst.board.domain.BoardVO">
+        SELECT
+        *
+        FROM BOARD;
+    </select>
     <select id="boardDetail" parameterType="int" resultType="com.example.newfirst.board.domain.BoardVO">
         SELECT
         *
@@ -40,15 +44,6 @@
         assign = #{assign},
         perform = #{perform},
         fail = #{fail}
-
-
-        <!--if test="title != null">
-            title = #{title}
-        </if>
-        <if test="title != null and assign != null"> , </if>
-        <if test="assign != null">
-            assign = #{assign}
-        </if-->
         WHERE id = #{id}
     </update>
 
@@ -56,6 +51,13 @@
         DELETE FROM BOARD WHERE id = #{id}
     </delete>
 
+    <select id="search" parameterType="com.example.newfirst.board.domain.BoardVO" resultType="com.example.newfirst.board.domain.BoardVO">
+        SELECT
+        *
+        FROM BOARD
+        WHERE
+        title = #{title}
+    </select>
 </mapper>
 
 

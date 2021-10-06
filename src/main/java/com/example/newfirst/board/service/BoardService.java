@@ -12,8 +12,14 @@ import com.example.newfirst.board.mapper.BoardMapper;
 @Service("com.example.newfirst.board.service.BoardService") // 서비스 클래스 입니다
 public class BoardService {
 
+
+
     @Resource(name="com.example.newfirst.board.mapper.BoardMapper")
     BoardMapper mBoardMapper;
+
+    /*public int count(Criteria cri) throws Exception{
+        return mBoardMapper.count(cri);
+    }*/
 
     public int boardCount() throws Exception{
 
@@ -22,9 +28,14 @@ public class BoardService {
 
     public List<BoardVO> boardListService(Criteria cri) throws Exception{
 
+
         return mBoardMapper.boardList(cri);
     }
 
+    public List<BoardVO> getListService() throws Exception{
+
+        return mBoardMapper.getlist();
+    }
     public BoardVO boardDetailService(int id) throws Exception{
 
         return mBoardMapper.boardDetail(id);

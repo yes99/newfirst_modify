@@ -6,6 +6,29 @@ public class Criteria {
     private int page; // 현재 페이지 번호
     private int perPageNum; // 페이지당 보여줄 게시글의 개수
 
+
+    //검색 유형과 검색어를 멤버 변수로 선언한다
+    /*
+    private String searchType;
+    private String keyword;
+
+    public String getSearchType() {
+        return searchType;
+    }
+
+    public void setSearchType(String searchType) {
+        this.searchType = searchType;
+    }
+
+    public String getKeyword() {
+        return keyword;
+    }
+
+    public void setKeyword(String keyword) {
+        this.keyword = keyword;
+    }
+    */
+
     public int getPageStart() {
         // 특정 페이지의 범위를 정하는 구간, 현재 페이지의 게시글 시작 번호
         // 0 ~ 10 , 10 ~ 20 이런식으로

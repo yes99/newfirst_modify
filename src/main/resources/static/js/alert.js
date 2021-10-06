@@ -36,7 +36,7 @@ function alerttest(){
     console.log(hdate, htitle);
     console.log(date, title, assign, perform, fail);
     //console.log(relativeTop)
-    alert("stop pelase");
+    //alert("stop pelase");
 
 /*
     fail, perfrom, assign 은 appendtag 형식으로 나타나게 함
