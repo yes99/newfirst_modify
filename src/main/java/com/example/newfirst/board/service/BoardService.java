@@ -26,6 +26,13 @@ public class BoardService {
         return mBoardMapper.boardCount();
     }
 
+    public List<BoardVO> getlist () throws Exception{
+
+
+        return mBoardMapper.getlist();
+    }
+
+
     public List<BoardVO> boardListService(Criteria cri) throws Exception{
 
 
